@@ -12,10 +12,13 @@ def calc(value):
 
 try:
     driver.get(link)
+
+    # Find and get value from attribute value
     treasure_icon = driver.find_element_by_id("treasure")
-    treasure_value = treasure_icon.get_attribute('valuex')
+    treasure_value = treasure_icon.get_attribute("valuex")
     print(treasure_value)
 
+    # Calculate value from attribute via formula
     calculated_value = calc(treasure_value)
     text_input = driver.find_element_by_id('answer')
     text_input.send_keys(calculated_value)
@@ -34,6 +37,6 @@ try:
 
 
 finally:
+    # Wait for script finish and quite from browser
     time.sleep(7)
     driver.quit()
-
